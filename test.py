@@ -10,7 +10,7 @@ def authorize(consumer_token, consumer_secret):
     auth = OAuthHandler(consumer_token, consumer_secret)
     try:
         redirect_url = auth.get_authorization_url()
-        print 'Successful OAuth'
+        print 'Successful OAuth. URL: %s' % redirect_url
     except TweepError:
         print 'Error! Failed to get request token.'
     return auth
@@ -28,7 +28,6 @@ if __name__=='__main__':
 	exit(1)
     token, secret = argv[1:]
     auth = authorize(token,secret)
-    print auth.access_token
     api = API(auth)
     stream = Stream(auth=api.auth, listener=StdOutListener())
     stream.filter( track=['hasta'] )
