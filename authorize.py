@@ -16,7 +16,7 @@ def authorize(consumer_token, consumer_secret):
 
 if __name__=='__main__':
     if len(argv)!=3:
-        print "usage: authorize_link.py [key] [secret]"
+        print "usage: authorize.py [key] [secret]"
         exit(1)
     token, secret = argv[1:]
     auth = authorize(token,secret)
