@@ -23,11 +23,11 @@ if __name__=='__main__':
     verifier = raw_input('Verifier:')
     auth.get_access_token(verifier)
     
-    f = open('credentials','w')   
-    print >>f, "{'KEY':'%s' \
+    f = open('credentials.py','w')   
+    print >>f, "CREDENTIALS={'KEY':'%s' \
 	,'SECRET':'%s' \
 	,'OAUTH_TOKEN':'%s' \
-	,'ACCESS_SECRET':'%s'}" % ( \
+	,'OAUTH_SECRET':'%s'}" % ( \
 		token \
 		, secret \
 		, auth.access_token \
