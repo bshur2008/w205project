@@ -4,10 +4,11 @@ from tweepy import Stream, TweepError
 from tweepy import OAuthHandler, API
 from sys import argv,exit
 from credentials import CREDENTIALS
+from json import dumps
 
 class StdOutListener(StreamListener):
     def on_status(self, status):
-        print status.text
+	print dumps(status._json,indent=4,sort_keys=True)
      
     def on_error(self, status):
         print status
@@ -19,5 +20,4 @@ if __name__=='__main__':
 	CREDENTIALS['OAUTH_SECRET'])
     api = API(auth)
     stream = Stream(auth=api.auth, listener=StdOutListener())
-    stream.filter( track=[t] )
-
+    stream.filter( track=[t] ,languages=['es'])
