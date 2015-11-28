@@ -14,10 +14,11 @@ class StdOutListener(StreamListener):
         print status
 
 if __name__=='__main__':
-    t = argv[1] if len(argv)>1 else 'boom'
+    # t = argv[1] if len(argv)>1 else 'boom'
+    t = ['un','una','yo','tu','su','y','en','para','por','a','i','u']
     auth = OAuthHandler(CREDENTIALS['KEY'],CREDENTIALS['SECRET'])
     auth.set_access_token(CREDENTIALS['OAUTH_TOKEN'], \
 	CREDENTIALS['OAUTH_SECRET'])
     api = API(auth)
     stream = Stream(auth=api.auth, listener=StdOutListener())
-    stream.filter( track=[t] ,languages=['es'])
+    stream.filter( track=t ,languages=['es'])
