@@ -1,3 +1,4 @@
+DROP DATABASE IF EXISTS raw ;
 CREATE DATABASE raw ;
 
 DROP TABLE IF EXISTS raw.tweets ;
@@ -8,7 +9,8 @@ CREATE EXTERNAL TABLE raw.tweets
     , language string
     , json string 
 )
+ROW FORMAT DELIMITED 
 FIELDS TERMINATED BY '~'
 LINES TERMINATED BY '\n'
 STORED AS TEXTFILE
-LOCATION  '/home/w205/tweets';
+LOCATION  '/user/w205/tweets';
