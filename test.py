@@ -11,9 +11,8 @@ language = 'es'
 
 class StdOutListener(StreamListener):
     def on_status(self, status):
-	tweet = dumps(status._json)
-	filter_used = ','.join(t)
-	print '~'.join([filter_used, language, tweet])
+	tweet = dumps(status._json,sort_keys=True,indent=4)
+	print tweet
      
     def on_error(self, status):
         print status
