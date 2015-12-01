@@ -12,7 +12,17 @@ language = 'es'
 class StdOutListener(StreamListener):
     def on_status(self, status):
 	tweet = dumps(status._json,sort_keys=True,indent=4)
-	print tweet
+	o = {
+	    'created_at':status._json.get('created_at')
+	    ,'favorite_count':status._json.get('favorite_count')
+	    ,'retweet_count':status._json.get('retweet_count')
+	    ,'language':status._json.get('lang')
+	    ,'user_location':status._json.get('user').get('location') 
+	    ,'user_name':status._json.get('user').get('name') 
+	    ,'user_screen_name':status._json.get('user').get('screen_name') 
+	    ,'text':status._json.get('text')
+	}
+	print o
      
     def on_error(self, status):
         print status
