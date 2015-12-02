@@ -15,7 +15,8 @@ class ParseTweet(Bolt):
         tweet = tup.values[0]  # extract the tweet
 
         # Split the tweet into words
-        words = tweet.split()
+	text = tweet.get('text','')
+        words = text.split()
 
         # Filter out the hash tags, RT, @ and urls
         valid_words = []

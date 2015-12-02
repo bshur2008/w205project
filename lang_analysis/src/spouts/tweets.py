@@ -32,7 +32,7 @@ class TweetStreamListener(tweepy.StreamListener):
         super(self.__class__, self).__init__(listener.tweepy_api())
 
     def on_status(self, status):
-        self.listener.queue().put(status.text, timeout = 0.01)
+        self.listener.queue().put(status._json, timeout = 0.01)
         return True
   
     def on_error(self, status_code):
@@ -62,7 +62,6 @@ class Tweets(Spout):
 
         # Create the stream and listen for english tweets
         stream = tweepy.Stream(auth, listener, timeout=None)
-        #stream.filter(languages=["en"], track=["a", "the", "i", "you", "u"], async=True)
         stream.filter(languages=["es"], track=['un','una','yo','tu','su','y','en','para','por','a','i','u'], async=True)
 
     def queue(self):
