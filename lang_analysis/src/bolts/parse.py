@@ -15,8 +15,7 @@ class ParseTweet(Bolt):
         tweet = tup.values[0]  # extract the tweet
 
         # Split the tweet into words
-	text = tweet.get('text','')
-        words = text.split()
+        words = tweet.split()
 
         # Filter out the hash tags, RT, @ and urls
         valid_words = []
@@ -36,15 +35,16 @@ class ParseTweet(Bolt):
 
             # Strip leading and lagging punctuations
             aword = word.strip("\"?><,'.:;)")
+	    bword = re.sub('[^a-zA-Z]','',aword)
 
             # now check if the word contains only ascii
-            if len(aword) > 0 and ascii_string(word):
-                valid_words.append([aword])
+            if len(bword) > 0 and ascii_string(bword):
+                valid_words.append([bword])
 
         if not valid_words: return
 
         # Emit all the words
         self.emit_many(valid_words)
-
+	self.log('{}'.format(str(valid_words)))
         # tuple acknowledgement is handled automatically
 

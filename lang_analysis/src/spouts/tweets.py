@@ -6,6 +6,7 @@ import Queue, threading
 
 from streamparse.spout import Spout
 from credentials import CREDENTIALS
+from json import dumps
 
 ################################################################################
 # Twitter credentials
@@ -32,7 +33,8 @@ class TweetStreamListener(tweepy.StreamListener):
         super(self.__class__, self).__init__(listener.tweepy_api())
 
     def on_status(self, status):
-        self.listener.queue().put(status._json, timeout = 0.01)
+        #self.listener.queue().put(dumps(status._json), timeout = 0.01)
+        self.listener.queue().put(status.text, timeout = 0.01)
         return True
   
     def on_error(self, status_code):
