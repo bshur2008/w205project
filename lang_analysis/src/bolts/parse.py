@@ -35,10 +35,10 @@ class ParseTweet(Bolt):
 
             # Strip leading and lagging punctuations
             aword = word.strip("\"?><,'.:;)")
-	    bword = re.sub('[^a-zA-Z]','',aword)
+	    bword = re.sub('[^\w+]','',aword,flags=re.UNICODE)
 
             # now check if the word contains only ascii
-            if len(bword) > 0 and ascii_string(bword):
+            if len(bword) > 0:# and ascii_string(bword):
                 valid_words.append([bword])
 
         if not valid_words: return
