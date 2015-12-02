@@ -8,10 +8,6 @@ CREATE EXTERNAL TABLE raw.tweets
 (
     json string 
 )
-ROW FORMAT SERDE 'com.amazon.elasticmapreduce.JsonSerde'
-with serdeproperties ( 
-      'paths'='json'
-    )
 LOCATION  '/user/w205/tweets';
 
 CREATE DATABASE IF NOT EXISTS stg ;
