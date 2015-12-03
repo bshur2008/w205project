@@ -34,7 +34,7 @@ class TweetStreamListener(tweepy.StreamListener):
 
     def on_status(self, status):
         #self.listener.queue().put(dumps(status._json), timeout = 0.01)
-        self.listener.queue().put(status.text, timeout = 0.01)
+        self.listener.queue().put(dumps(status._json), timeout = 0.01)
         return True
   
     def on_error(self, status_code):
