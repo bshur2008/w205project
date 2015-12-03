@@ -1,5 +1,3 @@
-ADD JAR libs/jsonserde.jar ;
-
 CREATE DATABASE IF NOT EXISTS raw ;
 
 DROP TABLE IF EXISTS raw.tweets ;
