@@ -14,7 +14,7 @@ def ascii_string(s):
 class ParseTweet(Bolt):
 
     def process(self, tup):
-	filename = '/user/w205/tweets/'+str(DT.now().year)+'/'+str(DT.now().month)+'/'+str(DT.now().day)+'/'+getdt()+'.js'
+	filename = '/user/w205/tweets/'+getdt()+'.js'
 	client = hdfs.client.Client('http://localhost:50070')
         tweet = tup.values[0]  # extract the tweet
         client.write(filename,data=tweet)
