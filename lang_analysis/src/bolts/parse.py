@@ -14,10 +14,10 @@ def ascii_string(s):
 class ParseTweet(Bolt):
 
     def process(self, tup):
-	filename = '/user/w205/tweets/'+getdt()+'.js'
+	filename = '/user/w205/raw/tweets/'+getdt()+'.js'
 	client = hdfs.client.Client('http://localhost:50070')
         tweet = tup.values[0]  # extract the tweet
-        client.write(filename,data=tweet)
+        client.write(filename,data=tweet+'\n')
 	
         # Split the tweet into words
 	tweet = loads(tweet)
