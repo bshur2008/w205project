@@ -9,6 +9,5 @@ if [ $fsize -gt 20 ]
 then
  sudo -u hdfs hdfs dfs -rm /user/w205/tweets/$lasthr*.js
  sudo -u hdfs hdfs dfs -moveFromLocal /data/tmp/$lasthr\.txt.gz /user/w205/tweets/$lasthr\.txt.gz
- sudo rm /data/tmp/$lasthr\.txt.gz
 fi
 
