@@ -1,2 +1,2 @@
 */5 * * * *    /project/launch.sh > /data/tmp/err.log
-*/15 * * * *   sudo /project/repair_last_hour.sh 
+0 * * * *   sudo /project/repair_last_hour.sh 
