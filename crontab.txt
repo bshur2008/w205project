@@ -1,2 +1,3 @@
 */5 * * * *    /project/launch.sh > /data/tmp/err.log
-0 * * * *   sudo /project/repair_last_hour.sh 
+0 * * * *   /project/repair_last_hour.sh 
+30 * * * *  sudo rm /var/log/hadoop-hdfs/*

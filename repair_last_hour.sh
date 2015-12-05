@@ -9,8 +9,8 @@ sudo chmod 777 /data/tmp/$lasthr\.txt.gz
 
 for s in ${segments[@]}
 do
-cat /data/tmp/raw/tweets/$lasthr${s:-1}*.js | gzip >> /data/tmp/$lasthr.txt.gz
-rm /data/tmp/raw/tweets/$lasthr${s:-1}*.js
+cat /data/tmp/raw/tweets/$lasthr$s*.js | gzip >> /data/tmp/$lasthr.txt.gz
+rm /data/tmp/raw/tweets/$lasthr$s*.js
 
 fsize=$(wc -c <"/data/tmp/$lasthr.txt.gz")
 if [[ $fsize -gt 20 ]]
