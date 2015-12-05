@@ -1,6 +1,7 @@
 from __future__ import absolute_import, print_function, unicode_literals
 
-import re, hdfs
+import re
+#import hdfs
 from streamparse.bolt import Bolt
 from datetime import datetime as DT
 from json import loads, dumps
@@ -14,10 +15,12 @@ def ascii_string(s):
 class ParseTweet(Bolt):
 
     def process(self, tup):
-	filename = '/user/w205/raw/tweets/'+getdt()+'.js'
-	client = hdfs.client.Client('http://localhost:50070')
+	filename = '/data/tmp/raw/tweets/'+getdt()+'.js'
         tweet = tup.values[0]  # extract the tweet
-        client.write(filename,data=tweet+'\n')
+	#client = hdfs.client.Client('http://localhost:50070')
+        #client.write(filename,data=tweet+'\n')
+	with open(filename,'w') as w:
+	    print(tweet,file=w)
 	
         # Split the tweet into words
 	tweet = loads(tweet)

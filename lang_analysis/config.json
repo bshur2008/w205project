@@ -8,8 +8,8 @@
             "nimbus": "",
             "workers": [],
             "log": {
-                "path": "",
-                "max_bytes": 1000000,
+                "path": "/data/tmp/logs",
+                "max_bytes": 100000,
                 "backup_count": 10,
                 "level": "info"
             },
