@@ -7,4 +7,5 @@ hive -f /project/DDLs/tweet_ddl.sql
 hive -f /project/ETLs/tweets_load_from_raw.sql 
 hive -f /project/ETLs/tweets_load_tweet_log.sql
 hive -f /project/ETLs/tweets_load_tweet_users.sql
+hive -f /project/ETLs/tweets_load_tweet_words.sql
 
