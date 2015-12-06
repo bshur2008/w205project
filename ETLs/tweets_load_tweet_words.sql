@@ -4,6 +4,6 @@ SELECT
     hash(concat(text,user_screen_name)) tweet_id
     , language
     , dt_event
-    , split(text,' ')
+    , split(lower(text),' ')
 FROM stg.tweets
 ;
