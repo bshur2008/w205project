@@ -1,3 +1,6 @@
+SET hive.exec.dynamic.partition = true;
+SET hive.exec.dynamic.partition.mode=nonstrict;
+
 FROM (
 FROM raw.tweets
 SELECT TRANSFORM(tweets.json)
@@ -14,6 +17,7 @@ dttm_event timestamp
 )
 ) raw_tweets
 INSERT INTO stg.tweets
+PARTITION (day)
 SELECT
     language 
     , to_date(dttm_event) 
@@ -24,4 +28,5 @@ SELECT
     , user_name 
     , user_location 
     , text 
+    , to_date(dttm_event) day
 ;
