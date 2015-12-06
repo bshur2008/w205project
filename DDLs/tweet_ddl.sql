@@ -12,7 +12,7 @@ CREATE DATABASE IF NOT EXISTS stg ;
 
 DROP TABLE IF EXISTS stg.tweets ;
 
-CREATE TABLE stg.tweets 
+CREATE TABLE IF NOT EXISTS stg.tweets 
 (
     language string
     , dt_event date
@@ -30,11 +30,10 @@ STORED AS ORC
 CREATE DATABASE IF NOT EXISTS prd;
 
 DROP TABLE IF EXISTS prd.tweet_log ;
-CREATE TABLE prd.tweet_log 
+CREATE TABLE IF NOT EXISTS prd.tweet_log 
 (
-    tweet_id bigint
-    , user_id bigint 
-    , words_id bigint
+    tweet_id string
+    , user_id string 
     , dttm_event timestamp
     , language string
     , cnt_retweets bigint
@@ -45,9 +44,9 @@ STORED AS ORC
 ;
 
 DROP TABLE IF EXISTS prd.tweet_users ;
-CREATE TABLE prd.tweet_users
+CREATE TABLE IF NOT EXISTS prd.tweet_users
 (
-    user_id bigint
+    user_id string
     , user_screen_name string
     , user_name string
     , user_location string
@@ -56,12 +55,12 @@ STORED AS ORC
 ;
 
 DROP TABLE IF EXISTS prd.tweet_words ;
-CREATE TABLE prd.tweet_words  
+CREATE TABLE IF NOT EXISTS prd.tweet_words  
 (
-    words_id bigint
+    tweet_id string
     , language string
     , dt_event date
-    , word string
+    , words array<string>
 )
 STORED AS ORC
 ;
