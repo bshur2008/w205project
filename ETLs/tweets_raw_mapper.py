@@ -17,6 +17,17 @@ for line in sys.stdin:
 	     ,'user_screen_name':tweet.get('user').get('screen_name') 
 	     ,'text':tweet.get('text')
 	    }
+	    valid_words = []
+            for word in o['text'].split():
+                if word.startswith("#"): continue		
+                if word.startswith("@"): continue
+                if word.startswith("RT"): continue
+                if word.startswith("http"): continue
+                word = word.strip("\"?><,'.:;)")
+	        word = re.sub('[^\w+]','',word,flags=re.UNICODE)
+                if len(word) > 0:
+                    valid_words.append(word)
+	    o['text'] = ' '.join(valid_words)
 	    print('\t'.join([ re.sub(r'[\n\r]','',unicode(x)) for x in [
 	     parse(o['created_at']).strftime('%Y-%m-%d %H:%M:%S')
 	     , o['favorite_count']
@@ -27,5 +38,6 @@ for line in sys.stdin:
 	     , o['user_screen_name']
 	     , o['text']
 	    ]]))
-	except:
+	except Exception as e:
+	    # print(e)
 	    pass
