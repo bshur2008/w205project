@@ -1,6 +1,6 @@
 CREATE DATABASE IF NOT EXISTS raw ;
 
-DROP TABLE IF EXISTS raw.tweets ;
+--DROP TABLE IF EXISTS raw.tweets ;
 
 CREATE EXTERNAL TABLE raw.tweets
 (
@@ -10,7 +10,7 @@ LOCATION  '/user/w205/tweets';
 
 CREATE DATABASE IF NOT EXISTS stg ;
 
-DROP TABLE IF EXISTS stg.tweets ;
+--DROP TABLE IF EXISTS stg.tweets ;
 
 CREATE TABLE IF NOT EXISTS stg.tweets 
 (
@@ -30,7 +30,7 @@ STORED AS ORC
 
 CREATE DATABASE IF NOT EXISTS prd;
 
-DROP TABLE IF EXISTS prd.tweet_log ;
+--DROP TABLE IF EXISTS prd.tweet_log ;
 CREATE TABLE IF NOT EXISTS prd.tweet_log 
 (
     tweet_id string
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS prd.tweet_log
 STORED AS ORC
 ;
 
-DROP TABLE IF EXISTS prd.tweet_users ;
+--DROP TABLE IF EXISTS prd.tweet_users ;
 CREATE TABLE IF NOT EXISTS prd.tweet_users
 (
     user_id string
@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS prd.tweet_users
 STORED AS ORC
 ;
 
-DROP TABLE IF EXISTS prd.tweet_words ;
+--DROP TABLE IF EXISTS prd.tweet_words ;
 CREATE TABLE IF NOT EXISTS prd.tweet_words  
 (
     tweet_id string
