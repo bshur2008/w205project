@@ -16,7 +16,7 @@ dttm_event timestamp
 , text string
 )
 ) raw_tweets
-INSERT INTO stg.tweets
+INSERT OVERWRITE TABLE stg.tweets
 PARTITION (day)
 SELECT
     language 
