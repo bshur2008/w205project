@@ -2,7 +2,7 @@ CREATE DATABASE IF NOT EXISTS raw ;
 
 --DROP TABLE IF EXISTS raw.tweets ;
 
-CREATE EXTERNAL TABLE raw.tweets
+CREATE EXTERNAL TABLE IF NOT EXISTS raw.tweets
 (
     json string 
 )
