@@ -1,0 +1,2 @@
+XML serde: https://github.com/dvasilen/Hive-XML-SerDe/wiki/XML-data-sources
+Wikipedia schema: https://www.mediawiki.org/xml/export-0.3.xsd
