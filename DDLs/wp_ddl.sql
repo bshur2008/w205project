@@ -3,9 +3,9 @@ add jar /project/libs/hivexmlserde-1.0.5.3.jar;
 
 CREATE DATABASE IF NOT EXISTS raw ;
 
-DROP TABLE IF EXISTS raw.wikipedia ;
+DROP TABLE IF EXISTS raw.es_wikipedia ;
 
-CREATE EXTERNAL TABLE IF NOT EXISTS raw.wikipedia
+CREATE EXTERNAL TABLE IF NOT EXISTS raw.es_wikipedia
 (
 	title string
 	, id bigint
@@ -22,10 +22,21 @@ WITH SERDEPROPERTIES (
 STORED AS
 INPUTFORMAT 'com.ibm.spss.hive.serde2.xml.XmlInputFormat'
 OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.IgnoreKeyTextOutputFormat'
-LOCATION  '/user/w205/wp'
+LOCATION  '/user/w205/wp/es'
 TBLPROPERTIES (
 "xmlinput.start"="<page>",
 "xmlinput.end"="</page>"
 )
 ;
 
+DROP TABLE IF EXISTS prd.wikipedia;
+
+CREATE TABLE prd.wikipedia
+(
+	language string
+	, title string
+	, words array<string>
+
+)
+STORED AS ORC
+;
