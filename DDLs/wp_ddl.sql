@@ -1,22 +1,31 @@
+
+add jar /project/libs/hivexmlserde-1.0.5.3.jar;
+
 CREATE DATABASE IF NOT EXISTS raw ;
 
 DROP TABLE IF EXISTS raw.wikipedia ;
 
 CREATE EXTERNAL TABLE IF NOT EXISTS raw.wikipedia
 (
-    xml string 
+	title string
+	, id bigint
+	, restrictions string
+	, revision map<string, string>
 )
-LOCATION  '/user/w205/wp';
-
-CREATE DATABASE IF NOT EXISTS stg ;
-
---DROP TABLE IF EXISTS stg.wikipedia ;
-
-CREATE TABLE IF NOT EXISTS stg.wikipedia
-(
-    language string
-    , text string
+ROW FORMAT SERDE 'com.ibm.spss.hive.serde2.xml.XmlSerDe'
+WITH SERDEPROPERTIES (
+"column.xpath.title"="/page/title/text()",
+"column.xpath.id"="/page/id/text()",
+"column.xpath.restrictions"="/page/restrictions/text()",
+"column.xpath.revision"="/page/revision/*"
 )
-STORED AS ORC 
+STORED AS
+INPUTFORMAT 'com.ibm.spss.hive.serde2.xml.XmlInputFormat'
+OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.IgnoreKeyTextOutputFormat'
+LOCATION  '/user/w205/wp'
+TBLPROPERTIES (
+"xmlinput.start"="<page>",
+"xmlinput.end"="</page>"
+)
 ;
 
