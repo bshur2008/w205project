@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+from __future__ import print_function #, unicode_literals
 import sys, re
 
 for line in sys.stdin:
@@ -15,7 +16,7 @@ for line in sys.stdin:
 			if re.search(ur'[0-9\_]',word,flags=re.UNICODE): continue
 			new_words.append(word)
 		new_text = ' '.join(new_words) #.encode('utf-8')
-		print '\t'.join([title,new_text])
+		print('\t'.join([title,new_text]))
 	except Exception as e:
-		# print e
+		# print(e)
 		pass
