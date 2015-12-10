@@ -1,5 +1,6 @@
 #!/usr/bin/env python
-from __future__ import print_function
+# -*- coding: utf-8 -*-
+from __future__ import print_function, unicode_literals
 import sys, json, re
 from dateutil.parser import parse
 
