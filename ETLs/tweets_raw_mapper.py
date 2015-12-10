@@ -1,6 +1,5 @@
 #!/usr/bin/env python
-# -*- coding: utf-8 -*-
-from __future__ import print_function, unicode_literals
+from __future__ import print_function #, unicode_literals
 import sys, json, re
 from dateutil.parser import parse
 
@@ -29,6 +28,10 @@ for line in sys.stdin:
 		if len(word) > 0:
 		    valid_words.append(word)
 	    o['text'] = re.sub(ur'[\n\r]','',' '.join(valid_words),flags=re.UNICODE).encode('utf-8')
+	    o['language'] = o['language'].encode('utf-8') if o['language'] else ''
+	    o['user_location'] = o['user_location'].encode('utf-8') if o['user_location'] else ''
+	    o['user_name'] = o['user_name'].encode('utf-8') if o['user_name'] else ''
+	    o['user_screen_name'] = o['user_screen_name'].encode('utf-8') if o['user_screen_name'] else ''
 	    print('\t'.join([ str(x) for x in [
 	     parse(o['created_at']).strftime('%Y-%m-%d %H:%M:%S')
 	     , o['favorite_count']
