@@ -1,4 +1,4 @@
 */5 * * * *	/project/launch.sh >> /data/tmp/logs/err.log
 5 * * * *	/bin/bash /project/repair_last_hour.sh > /data/tmp/logs/cron.log
 30 * * * *	sudo rm /var/log/hadoop-hdfs/*
-0 */6 * * *	/project/tweet_ETLs.sh 2> /data/tmp/logs/ETLs.log 1>/dev/null
+0 */12 * * *	/project/tweet_ETLs.sh 2> /data/tmp/logs/ETLs.log 1>/dev/null
