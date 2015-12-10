@@ -11,6 +11,7 @@ class TweetCounter(Bolt):
 		
 	def process(self, tup):
 		word = tup.values[0]
+		word = word.lower()
 		# Increment the local count
 		self.counts[word] += 1
 		
