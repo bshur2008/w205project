@@ -1,5 +1,5 @@
 
--- DROP TABLE IF EXISTS public.tweet_word_count ;
+--DROP TABLE IF EXISTS public.tweet_word_count ;
 CREATE TABLE public.tweet_word_count
 (
 	language varchar(10)
@@ -8,3 +8,5 @@ CREATE TABLE public.tweet_word_count
 	, cnt integer
 )
 ;
+
+CREATE INDEX twc ON public.tweet_word_count (language, day, word);
