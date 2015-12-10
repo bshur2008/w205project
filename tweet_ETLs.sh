@@ -2,6 +2,7 @@
 
 # DDL statements
 hive -f /project/DDLs/tweet_ddl.sql
+hive -f /project/DDLs/postgres_wc.sql
 
 # ETL flow
 hive -f /project/ETLs/tweets_load_from_raw.sql 
