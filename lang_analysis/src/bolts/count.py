@@ -22,7 +22,7 @@ class TweetCounter(Bolt):
 				TBL, word, DT.datetime.now().strftime('%Y-%m-%d'),'es'))
 		if cur.fetchone():
 			SQL = '''UPDATE public.{} 
-				SET cnt={}
+				SET cnt=cnt+{}
 				WHERE word='{}'
 				AND day='{}'
 				AND language='{}';
