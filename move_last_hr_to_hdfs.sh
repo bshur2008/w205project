@@ -9,3 +9,5 @@ cat /data/tmp/raw/tweets/$lasthr.txt | gzip >> /data/tmp/$lasthr.txt.gz
 
 hdfs dfs -moveFromLocal -f /data/tmp/$lasthr.txt.gz /user/w205/tweets/$lasthr.txt.gz
 
+gzip /data/tmp/raw/tweets/$lasthr.txt
+#rm /data/tmp/raw/tweets/$lasthr.txt
