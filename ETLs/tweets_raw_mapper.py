@@ -18,17 +18,17 @@ for line in sys.stdin:
 	     ,'text':tweet.get('text')
 	    }
 	    valid_words = []
-            for word in o['text'].split():
-                if word.startswith("#"): continue		
-                if word.startswith("@"): continue
-                if word.startswith("RT"): continue
-                if word.startswith("http"): continue
-                word = word.strip("\"?><,'.:;)")
-	        word = re.sub('[^\w+]','',word,flags=re.UNICODE)
-                if len(word) > 0:
-                    valid_words.append(word)
-	    o['text'] = ' '.join(valid_words)
-	    print('\t'.join([ re.sub(r'[\n\r]','',unicode(x)) for x in [
+	    for word in o['text'].split():
+		if word.startswith("#"): continue		
+		if word.startswith("@"): continue
+		if word.startswith("RT"): continue
+		if word.startswith("http"): continue
+		word = word.strip("\"?><,'.:;)")
+		word = re.sub(ur'[^\w+]','',word,flags=re.UNICODE)
+		if len(word) > 0:
+		    valid_words.append(word)
+	    o['text'] = re.sub(ur'[\n\r]','',' '.join(valid_words),flags=re.UNICODE).encode('utf-8')
+	    print('\t'.join([ str(x) for x in [
 	     parse(o['created_at']).strftime('%Y-%m-%d %H:%M:%S')
 	     , o['favorite_count']
 	     , o['retweet_count']
