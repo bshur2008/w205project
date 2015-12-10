@@ -20,6 +20,14 @@
           ["word"]
           :p 1
           )
+    ;; counter 
+    "cnt-bolt" (python-bolt-spec
+          options
+          {"s3-bolt" ["word"]}
+          "bolts.count.TweetCounter"
+          ["word" "count"]
+          :p 1
+          )
     }
   ]
 )
