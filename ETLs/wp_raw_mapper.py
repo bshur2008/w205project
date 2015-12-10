@@ -1,11 +1,13 @@
 #!/usr/bin/env python
 from __future__ import print_function #, unicode_literals
-import sys, re
+import sys, re, json 
 
 for line in sys.stdin:
 	try:
 		line = line.strip()
-		title, text = line.split('\t')
+		title, revisions = line.split('\t')
+		js = json.loads(revisions)
+		text = js['text']
 		title_words = title.split()
 		for title_word in title_words:
 			if re.search(ur'[^\w+]',title_word,flags=re.UNICODE): raise Exception('Bad title')
