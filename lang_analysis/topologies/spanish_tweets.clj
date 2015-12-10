@@ -18,7 +18,7 @@
           {"tweet-spout" :shuffle}
           "bolts.parse.ParseTweet"
           ["word"]
-          :p 2
+          :p 1
           )
     }
   ]
