@@ -6,7 +6,7 @@ CREATE EXTERNAL TABLE IF NOT EXISTS raw.es_tweets
 (
     json string 
 )
-LOCATION  '/user/w205/tweets';
+LOCATION  '/user/w205/tweets/es';
 
 CREATE DATABASE IF NOT EXISTS stg ;
 
