@@ -5,7 +5,7 @@ import re
 from streamparse.bolt import Bolt
 from datetime import datetime as DT
 from json import loads, dumps
-getdt = lambda: DT.now().strftime('%Y%m%d%H')
+getdt = lambda: DT.now().strftime('%Y%m%d%H%M%S%f')
 ################################################################################
 # Function to check if the string contains only ascii chars
 ################################################################################
@@ -15,11 +15,11 @@ def ascii_string(s):
 class ParseTweet(Bolt):
 
     def process(self, tup):
-	filename = '/data/tmp/raw/tweets/'+getdt()+'.txt'
+	filename = '/data/tmp/raw/tweets/'+getdt()+'.js'
         tweet = tup.values[0]  # extract the tweet
 	#client = hdfs.client.Client('http://localhost:50070')
         #client.write(filename,data=tweet+'\n')
-	with open(filename,'a') as w:
+	with open(filename,'w') as w:
 	    print(tweet,file=w)
 	
         # Split the tweet into words
