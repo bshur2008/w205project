@@ -1,4 +1,4 @@
 tweepy
-requests
 psycopg2
 python-dateutil
+streamparse
