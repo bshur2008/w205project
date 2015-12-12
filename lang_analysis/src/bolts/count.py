@@ -16,21 +16,20 @@ class TweetCounter(Bolt):
 		conn = psycopg2.connect("user=postgres")
 		cur = conn.cursor()
 		cur.execute('''SELECT * from public.{}
-			WHERE word='{}' and day='{}' and language='{}';'''.format(
-				TBL, word, DT.datetime.now().strftime('%Y-%m-%d'),'es'))
+			WHERE word='{}' and language='{}';'''.format(
+				TBL, word, 'es'))
 		if cur.fetchone():
 			SQL = '''UPDATE public.{} 
 				SET cnt=cnt+{}
 				WHERE word='{}'
-				AND day='{}'
 				AND language='{}';
 			'''.format(TBL,1,word,
-					DT.datetime.now().strftime('%Y-%m-%d'),'es')
+				'es')
 		else:
 			SQL = '''INSERT INTO public.{}
-				(language, day, word, cnt)
-				VALUES ('{}','{}','{}','{}');
-				'''.format(TBL,'es',DT.datetime.now().strftime('%Y-%m-%d'),
+				(language, word, cnt)
+				VALUES ('{}','{}',{});
+				'''.format(TBL,'es',
 						word, 1)
 		cur.execute(SQL)
 		conn.commit()
