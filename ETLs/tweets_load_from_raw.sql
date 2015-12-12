@@ -2,7 +2,7 @@ SET hive.exec.dynamic.partition = true;
 SET hive.exec.dynamic.partition.mode=nonstrict;
 
 FROM (
-FROM raw.tweets
+FROM raw.es_tweets
 SELECT TRANSFORM(tweets.json)
 USING '/project/ETLs/tweets_raw_mapper.py'
 AS (
