@@ -14,3 +14,5 @@ Steps to install:
 7) create /user/w205/tweets/es folder on HDFS
 8) install lein if not installed (http://leiningen.org/)
 9) use crontab.txt example file to schedule processes to run automatically
+	(NOTE: may need to execute sparse run from the /project/lang_analysis folder to 
+		compile job and ensure streamparse works before it will run correctly)
