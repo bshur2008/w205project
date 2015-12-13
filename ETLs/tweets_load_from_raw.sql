@@ -3,7 +3,7 @@ SET hive.exec.dynamic.partition.mode=nonstrict;
 
 FROM (
 FROM raw.es_tweets
-SELECT TRANSFORM(tweets.json)
+SELECT TRANSFORM(es_tweets.json)
 USING '/project/ETLs/tweets_raw_mapper.py'
 AS (
 dttm_event timestamp
