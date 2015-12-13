@@ -1,5 +1,6 @@
 
 INSERT OVERWRITE TABLE prd.combined_words
+SELECT * FROM (
 SELECT
 language 
 , 'tweets'
@@ -11,4 +12,5 @@ language
 , 'wiki'
 , words
 FROM prd.wikipedia
+) z
 ;
