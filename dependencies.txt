@@ -2,3 +2,4 @@ tweepy
 psycopg2
 python-dateutil
 streamparse
+redis
