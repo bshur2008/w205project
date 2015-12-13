@@ -31,7 +31,7 @@ class TweetCounter(Bolt):
 				VALUES ('{}','{}',{});
 				'''.format(TBL,'es',
 						word, 1)
-		cur.execute(SQL)
+		cur.execute(SQL+'COMMIT;')
 		conn.commit()
 		cur.close()
 		conn.close()
