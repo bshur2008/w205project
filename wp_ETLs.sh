@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
+PROJECT_HOME=/project
 
 # DDL statements
-hive -f /project/DDLs/wp_etl.sql
+hive -f $PROJECT_HOME/DDLs/wp_etl.sql
 
 # ETL flow
-hive -f /project/ETLs/wp_load_from_raw.sql
+hive -f $PROJECT_HOME/ETLs/wp_load_from_raw.sql
 
