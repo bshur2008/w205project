@@ -12,4 +12,5 @@ Steps to install:
 5) ensure that Hadoop and Hive are installed properly 
 6) create /data/tmp/raw/tweets folder(s) on local file system
 7) create /user/w205/tweets/es folder on HDFS
-8) use crontab.txt example file to schedule processes to run automatically
+8) install lein if not installed (http://leiningen.org/)
+9) use crontab.txt example file to schedule processes to run automatically

@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 lasthr=$(date -d'-1 hour' +%Y%m%d%H)
-lastday=$(date -d'-1 day' +%Y%m%d)
 segments=(0 1 2 3 4 5)
 
 rm /data/tmp/$lasthr.txt.gz
