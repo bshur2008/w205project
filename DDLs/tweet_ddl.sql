@@ -1,6 +1,6 @@
 CREATE DATABASE IF NOT EXISTS raw ;
 
---DROP TABLE IF EXISTS raw.tweets ;
+--DROP TABLE IF EXISTS raw.es_tweets ;
 
 CREATE EXTERNAL TABLE IF NOT EXISTS raw.es_tweets
 (
