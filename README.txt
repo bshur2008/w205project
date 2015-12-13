@@ -16,4 +16,5 @@ Steps to install:
 9) use crontab.txt example file to schedule processes to run automatically
 	(NOTE: may need to execute sparse run from the /project/lang_analysis folder to 
 		compile job and ensure streamparse works before it will run correctly)
-10) for wikipedia data, attach snapshot snap-8041f2e9 and load eswiki-* data into HDFS folder /user/w205/wp/es
+10) for wikipedia data, attach snapshot snap-8041f2e9 and load eswiki-20090812-pages-meta-current.xml.bz2 
+	data file into HDFS folder /user/w205/wp/es
