@@ -11,7 +11,7 @@ Steps to install:
 	export TWITTER_OAUTH_SECRET=[oauth secret]
 5) ensure that Hadoop and Hive are installed properly 
 6) create /data/tmp/raw/tweets folder(s) on local file system
-7) create /user/w205/tweets/es folder on HDFS
+7) create /user/w205/tweets/es folder(s) within HDFS (open up access to all users)
 8) install lein if not installed (http://leiningen.org/)
 9) use crontab.txt example file to schedule processes to run automatically
 	(NOTE: may need to execute sparse run from the /project/lang_analysis folder to 
