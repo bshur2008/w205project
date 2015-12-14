@@ -3,7 +3,7 @@ Steps to install:
 	git clone https://github.com/bshur2008/w205project.git
 	mv w205project /project
 2) ensure that python 2.7 is installed and install python dependencies with install_dependencies.sh script
-3) install redis and run in daemon mode locally (http://redis.io/ -- example conf file included)
+3) install redis and run in daemon mode locally (http://redis.io/ -- example redis.conf file included)
 4) add twitter credentials to ~/.bash_profile 
 	export TWITTER_KEY=[key]
 	export TWITTER_SECRET=[secret]
