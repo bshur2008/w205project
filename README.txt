@@ -26,7 +26,7 @@ Steps to install:
 		./wp_ETLs.sh # run Wikipedia ETLs
 	(NOTE: may need to execute sparse run from the /project/lang_analysis folder to 
 		compile job and ensure streamparse works before it will run correctly)
-11) to view realtime tweets use the serving scripts provided:
+11) to view real-time tweets use the serving scripts provided:
 	python serving-allwords.py # dump all words from Redis (NOTE: use sparingly)
 	python serving-allwords.py | sort -k2,2nr | head -n20 # display the top 20 words
 	python serving-getword.py [word] # display counts for an individual word
