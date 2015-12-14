@@ -30,3 +30,6 @@ Steps to install:
 	python serving-allwords.py # dump all words from Redis (NOTE: use sparingly)
 	python serving-allwords.py | sort -k2,2nr | head -n20 # display the top 20 words
 	python serving-getword.py [word] # display counts for an individual word
+
+NOTE: use test_scripts/authorize.py script to authenticate with OAuth for the first time
+	and test_scripts/test.py to test your twitter stream
