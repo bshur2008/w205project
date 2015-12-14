@@ -3,8 +3,20 @@ from tweepy.streaming import StreamListener
 from tweepy import Stream, TweepError
 from tweepy import OAuthHandler, API
 from sys import argv,exit
-from credentials import CREDENTIALS
 from json import dumps
+import os
+
+TWITTER_KEY = os.getenv('TWITTER_KEY','')
+TWITTER_SECRET = os.getenv('TWITTER_SECRET','')
+TWITTER_OAUTH_TOKEN = os.getenv('TWITTER_OAUTH_TOKEN','')
+TWITTER_OAUTH_SECRET = os.getenv('TWITTER_OAUTH_SECRET','')
+
+twitter_credentials = {
+    "consumer_key"        :  TWITTER_KEY,
+    "consumer_secret"     :  TWITTER_SECRET,
+    "access_token"        :  TWITTER_OAUTH_TOKEN,
+    "access_token_secret" :  TWITTER_OAUTH_SECRET,
+}
 
 t = ['un','una','yo','tu','su','y','en','para','por','a','i','u']
 language = 'es'
