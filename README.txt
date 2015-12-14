@@ -23,7 +23,7 @@ Steps to install:
 	into HDFS folder /user/w205/wp/es
 10) use crontab.txt example file to schedule processes to run automatically
 	OR run manually:
-		./launch.sh # run Storm topology
+		./launch.sh # check for running Storm topology and start if not running
 		./repair_last_hour.sh # run each hour to load tweets from local files to HDFS
 		./tweet_ETLs.sh # run ETLs for twitter data
 		./wp_ETLs.sh # run Wikipedia ETLs
