@@ -2,8 +2,10 @@ Steps to install:
 1) load code into /project folder (NOTE: this folder is required) 
 	git clone https://github.com/bshur2008/w205project.git
 	mv w205project /project
-2) ensure that python 2.7 is installed and install python dependencies with install_dependencies.sh script
-3) install redis and run in daemon mode locally (http://redis.io/ -- example redis.conf file included)
+2) ensure that python 2.7 is installed and 
+	install python dependencies with install_dependencies.sh script
+3) install redis and run in daemon mode locally (http://redis.io/)
+	example redis.conf file is included
 4) add twitter credentials to ~/.bash_profile or run the below in bash CLI
 	export TWITTER_KEY=[key]
 	export TWITTER_SECRET=[secret]
@@ -12,7 +14,8 @@ Steps to install:
 5) ensure that Hadoop and Hive are installed properly 
 6) create /data/tmp/raw/tweets folder(s) on local file system
 7) create /user/w205/tweets/es folder(s) within HDFS and 
-	open up access to all linux users with hdfs dfs -chmod 777 -r /user/w205/tweets/es 
+	open up access to all linux users with 
+	hdfs dfs -chmod 777 -r /user/w205/tweets/es 
 	(this allows cron job to move files from local file system to HDFS)
 8) install lein if not installed (http://leiningen.org/)
 9) for wikipedia data, attach EBS volume snapshot snap-8041f2e9 
