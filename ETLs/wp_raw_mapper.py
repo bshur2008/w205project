@@ -11,7 +11,8 @@ for line in sys.stdin:
 		for title_word in title_words:
 			if re.search(ur'[^\w+]',title_word,flags=re.UNICODE): raise Exception('Bad title')
 		new_words = []
-		words = re.sub(ur'[\|\[\]\(\)]',' ',text,flags=re.UNICODE).split()
+		words = re.sub(ur'[\|]',' ',text,flags=re.UNICODE).split()
+		words = re.sub(ur'[\]\[*`~-]','',text,flags=re.UNICODE).split()
 		for word in words:
 			if word.startswith('http'): continue
 			if re.search(ur'[^\w+.?]',word,flags=re.UNICODE): continue
