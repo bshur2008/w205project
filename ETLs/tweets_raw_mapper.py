@@ -23,8 +23,8 @@ for line in sys.stdin:
 		if word.startswith("@"): continue
 		if word.startswith("RT"): continue
 		if word.startswith("http"): continue
-		word = word.strip("\"?><,'.:;)")
-		word = re.sub(ur'[^\w+]','',word,flags=re.UNICODE)
+		#word = word.strip("\"?><,'.:;)")
+		word = re.sub(ur'[^\w+.?]','',word,flags=re.UNICODE)
 		if len(word) > 0:
 		    valid_words.append(word)
 	    o['text'] = re.sub(ur'[\n\r]','',' '.join(valid_words),flags=re.UNICODE).encode('utf-8')
