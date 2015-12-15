@@ -2,3 +2,4 @@ tweepy
 python-dateutil
 streamparse
 redis
+requests
