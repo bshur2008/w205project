@@ -24,7 +24,7 @@ for line in sys.stdin:
 		if word.startswith("RT"): continue
 		if word.startswith("http"): continue
 		#word = word.strip("\"?><,'.:;)")
-		word = re.sub(ur'[^\w+.+?+!+]','',word,flags=re.UNICODE)
+		word = re.sub(ur'[^\w+.?!]','',word,flags=re.UNICODE)
 		if len(word) > 0:
 		    valid_words.append(word)
 	    o['text'] = ' '.join(valid_words).encode('utf-8')

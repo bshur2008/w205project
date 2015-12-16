@@ -4,7 +4,7 @@ SELECT
     hash(concat(text,user_screen_name)) tweet_id
     , language
     , dt_event
-    , split(regexp_replace(lower(text),'[,.]',''),' ')
+    , split(lower(text),' ')
     , sentences(lower(text),'es')
 FROM stg.tweets
 WHERE language='es'

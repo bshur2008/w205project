@@ -15,6 +15,6 @@ INSERT OVERWRITE TABLE prd.wikipedia
 SELECT 
  'es' 
  , title
- , split(regexp_replace(lower(text),'[,.]',''),' ')
- , sentences(lower(text),'es')  
+ , split(lower(text),' ')
+ , sentences(lower(text),'es')
 ;
