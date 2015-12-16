@@ -5,6 +5,7 @@ SELECT
     , language
     , dt_event
     , split(regexp_replace(lower(text),'[,.]',''),' ')
-    , sentences(lower(text))
+    , sentences(lower(text),'es')
 FROM stg.tweets
+WHERE language='es'
 ;

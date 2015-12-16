@@ -16,5 +16,5 @@ SELECT
  'es' 
  , title
  , split(regexp_replace(lower(text),'[,.]',''),' ')
- , sentences(lower(text))  
+ , sentences(lower(text),'es')  
 ;
