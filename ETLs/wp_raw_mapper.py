@@ -15,7 +15,7 @@ for line in sys.stdin:
 		words = re.sub(ur'[\]\[*`~-]','',text,flags=re.UNICODE).split()
 		for word in words:
 			if word.startswith('http'): continue
-			if re.search(ur'[^\w+.?]',word,flags=re.UNICODE): continue
+			if re.search(ur'[^\w+.+?+!+]',word,flags=re.UNICODE): continue
 			if re.search(ur'[0-9\_]',word,flags=re.UNICODE): continue
 			new_words.append(word)
 		new_text = ' '.join(new_words).encode('utf-8')
