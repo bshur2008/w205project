@@ -7,7 +7,7 @@ newfolder=/user/w205/tweets/es/$lasthr
 
 # Load files into HDFS
 rm /data/tmp/$lasthr.txt.gz
-hdfs dfs -moveToLocal /user/w205/tweets/es/$lasthr/$lasthr\.txt.gz /data/tmp/$lasthr\.txt.gz
+hdfs dfs -copyToLocal /user/w205/tweets/es/$lasthr/$lasthr\.txt.gz /data/tmp/$lasthr\.txt.gz
 sudo chmod 777 /data/tmp/$lasthr.txt.gz
 
 for s in ${segments[@]}
