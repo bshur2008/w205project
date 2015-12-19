@@ -1,5 +1,5 @@
-*/5 * * * *	/project/launch.sh >> /data/tmp/logs/err.log
-5 * * * *	/project/repair_last_hour.sh > /data/tmp/logs/cron.log
+*/5 * * * *	/project/launch.sh > /dev/null
+5 * * * *	/project/repair_last_hour.sh > /dev/null
+15 */3 * * *	/project/tweet_ETLs.sh >/dev/null
 30 * * * *	sudo rm /var/log/hadoop-hdfs/*
 31 * * * *	sudo rm /project/lang_analysis/logs/*
-0 */12 * * *	/project/tweet_ETLs.sh 2> /data/tmp/logs/ETLs.log 1>/dev/null
