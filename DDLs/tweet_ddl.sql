@@ -6,6 +6,7 @@ CREATE EXTERNAL TABLE IF NOT EXISTS raw.es_tweets
 (
     json string 
 )
+PARTITIONED BY (hr string)
 LOCATION  '/user/w205/tweets/es';
 --LOCATION 's3n://brandonshurick/w205/tweets/es';
 
@@ -25,7 +26,6 @@ CREATE TABLE IF NOT EXISTS stg.tweets
     , user_location string
     , text string
 )
-PARTITIONED BY (hr string)
 STORED AS ORC 
 ;
 

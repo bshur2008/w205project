@@ -2,7 +2,8 @@
 --SET hive.exec.dynamic.partition.mode=nonstrict;
 
 FROM (
-FROM raw.es_tweets
+FROM ( SELECT * FROM raw.es_tweets
+WHERE es_tweets.hr='${hiveconf:lasthr}' ) es_tweets
 SELECT TRANSFORM(es_tweets.json)
 USING '/project/ETLs/tweets_raw_mapper.py'
 AS (
@@ -17,7 +18,6 @@ dttm_event timestamp
 )
 ) raw_tweets
 INSERT OVERWRITE TABLE stg.tweets
---PARTITION (day)
 SELECT
     language 
     , to_date(dttm_event) 
@@ -28,5 +28,4 @@ SELECT
     , user_name 
     , user_location 
     , text 
---   , to_date(dttm_event) day
 ;
