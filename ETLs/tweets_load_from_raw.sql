@@ -17,7 +17,7 @@ dttm_event timestamp
 , text string
 )
 ) raw_tweets
-INSERT OVERWRITE TABLE stg.tweets
+INSERT INTO TABLE stg.tweets
 SELECT
     language 
     , to_date(dttm_event) 
