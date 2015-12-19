@@ -18,7 +18,7 @@ dttm_event timestamp
 )
 ) raw_tweets
 INSERT INTO TABLE stg.tweets
-SELECT
+SELECT DISTINCT 
     language 
     , to_date(dttm_event) 
     , dttm_event 
