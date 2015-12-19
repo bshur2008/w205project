@@ -3,6 +3,7 @@ PROJECT_HOME=/project
 
 # DDL statements
 hive -f $PROJECT_HOME/DDLs/tweet_ddl.sql
+hive -f $PROJECT_HOME/DDLs/combined_table.sql
 
 # ETL flow
 # hive -f $PROJECT_HOME/ETLs/tweets_load_from_raw.sql 

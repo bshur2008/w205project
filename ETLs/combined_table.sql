@@ -5,14 +5,12 @@ SELECT
 language 
 , 'tweets'
 , words
-, sentences
 FROM prd.tweet_words
 UNION ALL
 SELECT
 language
 , 'wiki'
 , words
-, sentences
 FROM prd.wikipedia
 ) z
 ;
