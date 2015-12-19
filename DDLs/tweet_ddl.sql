@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS stg.tweets
     , user_location string
     , text string
 )
---PARTITIONED BY (day string)
+PARTITIONED BY (hr string)
 STORED AS ORC 
 ;
 
