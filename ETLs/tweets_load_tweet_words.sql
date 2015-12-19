@@ -5,7 +5,6 @@ SELECT
     , language
     , dt_event
     , split(lower(text),' ')
-    , sentences(lower(text),'es')
 FROM stg.tweets
 WHERE language='es'
 ;

@@ -37,7 +37,6 @@ CREATE TABLE IF NOT EXISTS prd.wikipedia
 	language string
 	, title string
 	, words array<string>
-	, sentences array<array<string>> 
 )
 STORED AS ORC
 ;

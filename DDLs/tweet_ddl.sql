@@ -63,7 +63,6 @@ CREATE TABLE IF NOT EXISTS prd.tweet_words
     , language string
     , dt_event date
     , words array<string>
-    , sentences array<array<string>>
 )
 STORED AS ORC
 ;

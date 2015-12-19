@@ -16,5 +16,4 @@ SELECT
  'es' 
  , title
  , split(lower(text),' ')
- , sentences(lower(text),'es')
 ;
