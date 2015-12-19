@@ -32,7 +32,7 @@ TBLPROPERTIES (
 
 --DROP TABLE IF EXISTS prd.wikipedia;
 
-CREATE TABLE prd.wikipedia
+CREATE TABLE IF NOT EXISTS prd.wikipedia
 (
 	language string
 	, title string

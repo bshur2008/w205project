@@ -1,5 +1,5 @@
-SET hive.exec.dynamic.partition = true;
-SET hive.exec.dynamic.partition.mode=nonstrict;
+--SET hive.exec.dynamic.partition = true;
+--SET hive.exec.dynamic.partition.mode=nonstrict;
 
 FROM (
 FROM raw.es_tweets
@@ -17,7 +17,7 @@ dttm_event timestamp
 )
 ) raw_tweets
 INSERT OVERWRITE TABLE stg.tweets
-PARTITION (day)
+--PARTITION (day)
 SELECT
     language 
     , to_date(dttm_event) 
@@ -28,5 +28,5 @@ SELECT
     , user_name 
     , user_location 
     , text 
-    , to_date(dttm_event) day
+--   , to_date(dttm_event) day
 ;
