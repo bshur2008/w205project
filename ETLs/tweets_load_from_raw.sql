@@ -1,11 +1,12 @@
 --SET hive.exec.dynamic.partition = true;
 --SET hive.exec.dynamic.partition.mode=nonstrict;
+ADD FILE /project/ETLs/tweets_raw_mapper.py;
 
 FROM (
 FROM ( SELECT * FROM raw.es_tweets
 WHERE es_tweets.hr='${hiveconf:lasthr}' ) es_tweets
 SELECT TRANSFORM(es_tweets.json)
-USING '/user/w205/tweets_raw_mapper.py'
+USING 'python tweets_raw_mapper.py'
 AS (
 dttm_event timestamp
 , cnt_favorites bigint
