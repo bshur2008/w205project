@@ -5,7 +5,7 @@ FROM (
 FROM ( SELECT * FROM raw.es_tweets
 WHERE es_tweets.hr='${hiveconf:lasthr}' ) es_tweets
 SELECT TRANSFORM(es_tweets.json)
-USING '/project/ETLs/tweets_raw_mapper.py'
+USING '/user/w205/tweets_raw_mapper.py'
 AS (
 dttm_event timestamp
 , cnt_favorites bigint

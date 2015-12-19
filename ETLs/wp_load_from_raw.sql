@@ -6,7 +6,7 @@ SELECT TRANSFORM(
 	es_wikipedia.title
 	, regexp_replace(es_wikipedia.revision['text'],'[\n\r\t]',' ')
 )
-USING '/project/ETLs/wp_raw_mapper.py'
+USING '/user/w205/wp_raw_mapper.py'
 AS 
 title string
 , text string
