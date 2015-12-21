@@ -2,3 +2,4 @@ credentials.py
 *.pyc
 *.log
 *.out
+dump.rdb 

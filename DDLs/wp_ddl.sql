@@ -2,8 +2,9 @@
 add jar /project/libs/hivexmlserde-1.0.5.3.jar;
 
 CREATE DATABASE IF NOT EXISTS raw ;
+CREATE DATABASE IF NOT EXISTS prd ;
 
-DROP TABLE IF EXISTS raw.es_wikipedia ;
+--DROP TABLE IF EXISTS raw.es_wikipedia ;
 
 CREATE EXTERNAL TABLE IF NOT EXISTS raw.es_wikipedia
 (
@@ -29,14 +30,13 @@ TBLPROPERTIES (
 )
 ;
 
-DROP TABLE IF EXISTS prd.wikipedia;
+--DROP TABLE IF EXISTS prd.wikipedia;
 
-CREATE TABLE prd.wikipedia
+CREATE TABLE IF NOT EXISTS prd.wikipedia
 (
 	language string
 	, title string
 	, words array<string>
-
 )
 STORED AS ORC
 ;

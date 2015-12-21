@@ -3,8 +3,7 @@
 ADD FILE /project/ETLs/tweets_raw_mapper.py;
 
 FROM (
-FROM ( SELECT * FROM raw.es_tweets
-WHERE es_tweets.hr='${hiveconf:lasthr}' ) es_tweets
+FROM raw.es_tweets
 SELECT TRANSFORM(es_tweets.json)
 USING 'python tweets_raw_mapper.py'
 AS (
@@ -18,8 +17,8 @@ dttm_event timestamp
 , text string
 )
 ) raw_tweets
-INSERT INTO TABLE stg.tweets
-SELECT DISTINCT 
+INSERT OVERWRITE TABLE stg.tweets
+SELECT 
     language 
     , to_date(dttm_event) 
     , dttm_event 
